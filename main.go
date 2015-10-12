@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"./social/opensocial/service"
+	"./protocol"
 )
 
 func main() {
-	http.Handle("/social/rest/", service.NewDataServiceServlet())
+	http.Handle("/social/rest/", protocol.NewDataServiceServlet())
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
