@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"./protocol"
+	"github.com/WitzHsiao/shindigo/protocol"
 )
 
 func main() {
