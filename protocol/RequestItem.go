@@ -2,6 +2,7 @@ package protocol
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -47,6 +48,9 @@ func (self *RequestItem) GetListParameter(paramName string) []string {
 }
 
 func (self *RequestItem) SetParameter(paramName string, paramValue interface{}) {
+	if paramValue == nil {
+		return
+	}
 	if p, ok := paramValue.([]string); ok {
 		if len(p) == 1 {
 			self.parameters[paramName] = p[0]
@@ -87,5 +91,15 @@ func (self *RequestItem) GetParameter(paramName string) string {
 	return fmt.Sprint(param)
 }
 
-func (self *RequestItem) GetCount() int {
+func (self *RequestItem) GetCount() (int, error) {
+	count := self.GetParameter(COUNT)
+	if count == "" {
+		return DEFAULT_COUNT, nil
+	} else {
+		i, err := strconv.Atoi(count)
+		if err != nil {
+			return 0, err
+		}
+		return i, nil
+	}
 }

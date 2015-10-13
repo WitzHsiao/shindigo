@@ -25,14 +25,16 @@ func TestGetAppId(t *testing.T) {
 	// TODO: test with fake gadget token
 }
 
-func TestStartIndex(t *testing.T) {
+func TestCount(t *testing.T) {
 	req.SetParameter("count", nil)
-	if !(DEFAULT_COUNT == req.GetCount()) {
+	actual, _ := req.GetCount()
+	if !(DEFAULT_COUNT == actual) {
 		t.Fail()
 	}
 
 	req.SetParameter("count", "5")
-	if !(5 == req.GetCount()) {
+	actual, _ = req.GetCount()
+	if !(5 == actual) {
 		t.Fail()
 	}
 }
