@@ -38,3 +38,17 @@ func TestCount(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestStartIndex(t *testing.T) {
+	req.SetParameter("startIndex", nil)
+	actual, _ := req.GetStartIndex()
+	if !(DEFAULT_START_INDEX == actual) {
+		t.Fail()
+	}
+
+	req.SetParameter("startIndex", "5")
+	actual, _ = req.GetStartIndex()
+	if !(5 == actual) {
+		t.Fail()
+	}
+}

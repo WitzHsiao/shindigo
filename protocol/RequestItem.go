@@ -103,3 +103,16 @@ func (self *RequestItem) GetCount() (int, error) {
 		return i, nil
 	}
 }
+
+func (self *RequestItem) GetStartIndex() (int, error) {
+	startIndex := self.GetParameter(START_INDEX)
+	if startIndex == "" {
+		return DEFAULT_START_INDEX, nil
+	} else {
+		i, err := strconv.Atoi(startIndex)
+		if err != nil {
+			return 0, err
+		}
+		return i, nil
+	}
+}
