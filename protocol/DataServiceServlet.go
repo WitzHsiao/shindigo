@@ -24,6 +24,7 @@ func (self *DataServiceServlet) handleSingleRequest(w http.ResponseWriter, r *ht
 }
 
 func (self *DataServiceServlet) getRestHandler(r *http.Request) RestHandler {
+	return nil
 }
 
 func NewDataServiceServlet() *DataServiceServlet {

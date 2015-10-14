@@ -1,7 +1,6 @@
 package protocol
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -65,14 +64,12 @@ func TestFields(t *testing.T) {
 	req := NewRequestItem()
 	req.SetParameter("fields", "")
 	actual, _ := req.GetFields()
-	fmt.Println(actual)
 	if !(reflect.DeepEqual([]string{}, actual)) {
 		t.Fail()
 	}
 
 	req.SetParameter("fields", "happy,sad,grumpy")
 	actual, _ = req.GetFields()
-	fmt.Println(actual)
 	if !(reflect.DeepEqual([]string{"happy", "sad", "grumpy"}, actual)) {
 		t.Fail()
 	}
