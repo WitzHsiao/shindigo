@@ -116,3 +116,7 @@ func (self *RequestItem) GetStartIndex() (int, error) {
 		return i, nil
 	}
 }
+
+func (self *RequestItem) GetFields() ([]string, error) {
+	return self.GetListParameter(FIELDS), nil
+}
